@@ -857,6 +857,156 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* GitHub Settings Modal */
+        .github-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .github-modal.active {
+            display: flex;
+        }
+
+        .github-modal-content {
+            background: var(--bg-primary);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .github-modal h2 {
+            margin: 0 0 var(--spacing-md) 0;
+            color: var(--text-primary);
+        }
+
+        .github-modal p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.6;
+        }
+
+        .github-input-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .github-input-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .github-input-group input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-base);
+            font-family: monospace;
+            box-sizing: border-box;
+        }
+
+        .github-input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .github-modal-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: flex-end;
+        }
+
+        .github-btn {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-base);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .github-btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .github-btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .github-btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .github-btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        /* GitHub Settings Button */
+        .github-settings-btn {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            font-size: var(--font-size-base);
+            transition: var(--transition-base);
+            z-index: 100;
+        }
+
+        .github-settings-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Sync Status Indicator */
+        .sync-status {
+            position: fixed;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-sm);
+            z-index: 100;
+        }
+
+        .sync-status.syncing {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .sync-status.success {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+
+        .sync-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
     </style>
 </head>
 <body>
@@ -952,17 +1102,222 @@
         </div>
     </div>
 
+    <!-- Sync Status Indicator -->
+    <div id="sync-status" class="sync-status" style="display: none;"></div>
+
+    <!-- GitHub Settings Button -->
+    <button class="github-settings-btn" onclick="openGitHubSettings()">⚙️ GitHub 設定</button>
+
+    <!-- GitHub Settings Modal -->
+    <div id="github-modal" class="github-modal">
+        <div class="github-modal-content">
+            <h2>GitHub 同步設定</h2>
+            <p>請輸入你的 GitHub Personal Access Token 以啟用跨裝置資料同步。</p>
+            <p style="font-size: 0.875rem; color: var(--text-muted);">
+                Token 會安全地儲存在你的瀏覽器中，不會上傳到任何伺服器。
+            </p>
+
+            <div class="github-input-group">
+                <label for="github-token-input">Personal Access Token</label>
+                <input type="password" id="github-token-input" placeholder="ghp_xxxxxxxxxxxx">
+            </div>
+
+            <div class="github-input-group">
+                <label for="github-repo-input">Repository (格式: username/repo)</label>
+                <input type="text" id="github-repo-input" value="Leeboyd/blog" readonly>
+            </div>
+
+            <div class="github-modal-actions">
+                <button class="github-btn github-btn-secondary" onclick="closeGitHubSettings()">取消</button>
+                <button class="github-btn github-btn-primary" onclick="saveGitHubSettings()">儲存</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let pokemonData = [];
         let currentView = 'list';
         let currentFilter = 'all';
 
+        // GitHub Configuration
+        const GITHUB_CONFIG = {
+            repo: 'Leeboyd/blog',
+            filePath: 'pokemon_data.json',
+            branch: 'master'
+        };
+
+        // GitHub API Functions
+        function getGitHubToken() {
+            return localStorage.getItem('github_token');
+        }
+
+        function setGitHubToken(token) {
+            localStorage.setItem('github_token', token);
+        }
+
+        function showSyncStatus(message, type = 'info') {
+            const statusEl = document.getElementById('sync-status');
+            statusEl.textContent = message;
+            statusEl.className = 'sync-status ' + type;
+            statusEl.style.display = 'block';
+
+            if (type === 'success' || type === 'error') {
+                setTimeout(() => {
+                    statusEl.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        async function fetchFromGitHub() {
+            const token = getGitHubToken();
+            if (!token) {
+                console.log('未設定 GitHub Token，使用本地檔案');
+                return null;
+            }
+
+            try {
+                showSyncStatus('正在從 GitHub 同步資料...', 'syncing');
+
+                const response = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API 錯誤: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const content = JSON.parse(atob(data.content));
+
+                showSyncStatus('✓ 資料同步成功', 'success');
+                return { content, sha: data.sha };
+            } catch (error) {
+                console.error('從 GitHub 讀取失敗:', error);
+                showSyncStatus('✗ 同步失敗，使用本地資料', 'error');
+                return null;
+            }
+        }
+
+        async function pushToGitHub(data) {
+            const token = getGitHubToken();
+            if (!token) {
+                console.log('未設定 GitHub Token，跳過同步');
+                return false;
+            }
+
+            try {
+                showSyncStatus('正在儲存到 GitHub...', 'syncing');
+
+                // First, get the current file's SHA
+                const getCurrentFile = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (!getCurrentFile.ok) {
+                    throw new Error(`無法取得檔案 SHA: ${getCurrentFile.status}`);
+                }
+
+                const currentFile = await getCurrentFile.json();
+                const sha = currentFile.sha;
+
+                // Now update the file
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
+                const response = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`,
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Update Pokemon tracking data',
+                            content: content,
+                            sha: sha,
+                            branch: GITHUB_CONFIG.branch
+                        })
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API 錯誤: ${response.status}`);
+                }
+
+                showSyncStatus('✓ 已儲存到 GitHub', 'success');
+                return true;
+            } catch (error) {
+                console.error('推送到 GitHub 失敗:', error);
+                showSyncStatus('✗ 儲存失敗', 'error');
+                return false;
+            }
+        }
+
+        // GitHub Settings Modal Functions
+        function openGitHubSettings() {
+            const modal = document.getElementById('github-modal');
+            const tokenInput = document.getElementById('github-token-input');
+            const currentToken = getGitHubToken();
+
+            if (currentToken) {
+                tokenInput.value = currentToken;
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeGitHubSettings() {
+            const modal = document.getElementById('github-modal');
+            modal.classList.remove('active');
+        }
+
+        function saveGitHubSettings() {
+            const tokenInput = document.getElementById('github-token-input');
+            const token = tokenInput.value.trim();
+
+            if (!token) {
+                alert('請輸入 GitHub Token');
+                return;
+            }
+
+            setGitHubToken(token);
+            closeGitHubSettings();
+            alert('GitHub 設定已儲存！下次操作時將自動同步。');
+
+            // Reload data from GitHub
+            location.reload();
+        }
+
         // Load Pokemon data
         async function loadData() {
             try {
-                const response = await fetch('pokemon_data.json');
-                pokemonData = await response.json();
-                pokemonData = loadSavedData(pokemonData);
+                // Try to load from GitHub first
+                const githubData = await fetchFromGitHub();
+
+                if (githubData && githubData.content) {
+                    // Use GitHub data
+                    pokemonData = githubData.content;
+                    console.log('已從 GitHub 載入資料');
+                } else {
+                    // Fallback to local file
+                    const response = await fetch('pokemon_data.json');
+                    pokemonData = await response.json();
+                    console.log('已從本地檔案載入資料');
+                }
+
                 renderTable(pokemonData);
                 renderGrid(pokemonData);
                 updateFilterStats(currentFilter);
@@ -1324,7 +1679,7 @@
         }
 
         // Toggle catch status - 簡單邏輯：獨立切換兩個 flag
-        function toggleCatch(pokemonId, type) {
+        async function toggleCatch(pokemonId, type) {
             const pokemon = pokemonData.find(p => p.id === pokemonId);
             if (!pokemon) return;
 
@@ -1336,8 +1691,8 @@
                 pokemon.uploaded_to_home = !pokemon.uploaded_to_home;
             }
 
-            // Save to localStorage
-            savePokemonData();
+            // Save to GitHub (will automatically sync across devices)
+            await pushToGitHub(pokemonData);
 
             // Re-render both views
             renderTable(pokemonData);
