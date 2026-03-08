@@ -1450,10 +1450,11 @@
 
             // Push to GitHub
             try {
-                await pushToGitHub('新增 Pokemon: ' + name);
+                await pushToGitHub(pokemonData);
                 alert(`成功新增 Pokemon #${paddedId}: ${name}`);
                 closeAddPokemonModal();
-                renderTable();
+                renderTable(pokemonData);
+                renderGrid(pokemonData);
             } catch (error) {
                 console.error('Failed to add Pokemon:', error);
                 alert('新增失敗: ' + error.message);
