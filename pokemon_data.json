@@ -1,0 +1,2828 @@
+[
+  {
+    "id": "0115",
+    "name": "Kangaskhan",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0208",
+    "name": "Steelix",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0234",
+    "name": "Stantler",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0236",
+    "name": "Tyrogue",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0240",
+    "name": "Magby",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0249",
+    "name": "Lugia",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0267",
+    "name": "Beautifly",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0291",
+    "name": "Ninjask",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0327",
+    "name": "Spinda",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0330",
+    "name": "Flygon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0357",
+    "name": "Tropius",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0367",
+    "name": "Huntail",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0377",
+    "name": "Regirock",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0378",
+    "name": "Regice",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0379",
+    "name": "Registeel",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0384",
+    "name": "Rayquaza",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0385",
+    "name": "Jirachi",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0386",
+    "name": "Deoxys",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0395",
+    "name": "Empoleon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0404",
+    "name": "Luxio",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0405",
+    "name": "Luxray",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0409",
+    "name": "Rampardos",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0411",
+    "name": "Bastiodon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0417",
+    "name": "Pachirisu",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0419",
+    "name": "Floatzel",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0424",
+    "name": "Ambipom",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0429",
+    "name": "Mismagius",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0433",
+    "name": "Chingling",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0439",
+    "name": "Mime Jr.",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0450",
+    "name": "Hippowdon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0464",
+    "name": "Rhyperior",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0467",
+    "name": "Magmortar",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0469",
+    "name": "Yanmega",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0472",
+    "name": "Gliscor",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0475",
+    "name": "Gallade",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0477",
+    "name": "Dusknoir",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0478",
+    "name": "Froslass",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0489",
+    "name": "Phione",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0490",
+    "name": "Manaphy",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0492",
+    "name": "Shaymin",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0493",
+    "name": "Arceus",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0494",
+    "name": "Victini",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0497",
+    "name": "Serperior",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0503",
+    "name": "Samurott",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0516",
+    "name": "Simipour",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0530",
+    "name": "Excadrill",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0542",
+    "name": "Leavanny",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0549",
+    "name": "Lilligant",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0552",
+    "name": "Krokorok",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0553",
+    "name": "Krookodile",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0556",
+    "name": "Maractus",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0561",
+    "name": "Sigilyph",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0562",
+    "name": "Yamask",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0563",
+    "name": "Cofagrigus",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0565",
+    "name": "Carracosta",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0573",
+    "name": "Cinccino",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0576",
+    "name": "Gothitelle",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0583",
+    "name": "Vanillish",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0584",
+    "name": "Vanilluxe",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0588",
+    "name": "Karrablast",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0598",
+    "name": "Ferrothorn",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0600",
+    "name": "Klang",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0601",
+    "name": "Klinklang",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0604",
+    "name": "Eelektross",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0609",
+    "name": "Chandelure",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0620",
+    "name": "Mienshao",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0623",
+    "name": "Golurk",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0625",
+    "name": "Bisharp",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0628",
+    "name": "Braviary",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0630",
+    "name": "Mandibuzz",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0632",
+    "name": "Durant",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0636",
+    "name": "Larvesta",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0637",
+    "name": "Volcarona",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0638",
+    "name": "Cobalion",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0640",
+    "name": "Virizion",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0643",
+    "name": "Reshiram",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0647",
+    "name": "Keldeo",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0648",
+    "name": "Meloetta",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0649",
+    "name": "Genesect",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0662",
+    "name": "Fletchinder",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0663",
+    "name": "Talonflame",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0674",
+    "name": "Pancham",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0675",
+    "name": "Pangoro",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0676",
+    "name": "Furfrou",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0677",
+    "name": "Espurr",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0678",
+    "name": "Meowstic",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0679",
+    "name": "Honedge",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0680",
+    "name": "Doublade",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0681",
+    "name": "Aegislash",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0701",
+    "name": "Hawlucha",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0707",
+    "name": "Klefki",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0709",
+    "name": "Trevenant",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0710",
+    "name": "Pumpkaboo",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0711",
+    "name": "Gourgeist",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0716",
+    "name": "Xerneas (Neutral Mode)",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0717",
+    "name": "Yveltal",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0718",
+    "name": "Zygarde",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0719",
+    "name": "Diancie",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0720",
+    "name": "Hoopa",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0721",
+    "name": "Volcanion",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0729",
+    "name": "Brionne",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0730",
+    "name": "Primarina",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0743",
+    "name": "Ribombee",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0745",
+    "name": "Lycanroc",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0746",
+    "name": "Wishiwashi",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0749",
+    "name": "Mudbray",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0750",
+    "name": "Mudsdale",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0752",
+    "name": "Araquanid",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0754",
+    "name": "Lurantis",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0757",
+    "name": "Salandit",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0758",
+    "name": "Salazzle",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0763",
+    "name": "Tsareena",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0764",
+    "name": "Comfey",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0768",
+    "name": "Golisopod",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0771",
+    "name": "Pyukumuku",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0772",
+    "name": "Type: Null",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0773",
+    "name": "Silvally",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0774",
+    "name": "Minior (Red Core)",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0775",
+    "name": "Komala",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0776",
+    "name": "Turtonator",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0778",
+    "name": "Mimikyu",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0781",
+    "name": "Dhelmise",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0786",
+    "name": "Tapu Lele",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0787",
+    "name": "Tapu Bulu",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0788",
+    "name": "Tapu Fini",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0790",
+    "name": "Cosmoem",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0791",
+    "name": "Solgaleo",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0792",
+    "name": "Lunala",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0793",
+    "name": "Nihilego",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0794",
+    "name": "Buzzwole",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0795",
+    "name": "Pheromosa",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0797",
+    "name": "Celesteela",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0798",
+    "name": "Kartana",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0799",
+    "name": "Guzzlord",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0800",
+    "name": "Necrozma",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0801",
+    "name": "Magearna",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0802",
+    "name": "Marshadow",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0804",
+    "name": "Naganadel",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0805",
+    "name": "Stakataka",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0806",
+    "name": "Blacephalon",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0807",
+    "name": "Zeraora",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0808",
+    "name": "Meltan",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0809",
+    "name": "Melmetal",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0812",
+    "name": "Rillaboom",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0815",
+    "name": "Cinderace",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0818",
+    "name": "Inteleon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0821",
+    "name": "Rookidee",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0822",
+    "name": "Corvisquire",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0823",
+    "name": "Corviknight",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0824",
+    "name": "Blipbug",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0825",
+    "name": "Dottler",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0826",
+    "name": "Orbeetle",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0829",
+    "name": "Gossifleur",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0830",
+    "name": "Eldegoss",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0833",
+    "name": "Chewtle",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0834",
+    "name": "Drednaw",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0835",
+    "name": "Yamper",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0836",
+    "name": "Boltund",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0837",
+    "name": "Rolycoly",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0838",
+    "name": "Carkol",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0839",
+    "name": "Coalossal",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0840",
+    "name": "Applin",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0841",
+    "name": "Flapple",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0842",
+    "name": "Appletun",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0843",
+    "name": "Silicobra",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0844",
+    "name": "Sandaconda",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0845",
+    "name": "Cramorant",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0846",
+    "name": "Arrokuda",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0847",
+    "name": "Barraskewda",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0848",
+    "name": "Toxel",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0849",
+    "name": "Toxtricity",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0850",
+    "name": "Sizzlipede",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0851",
+    "name": "Centiskorch",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0852",
+    "name": "Clobbopus",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0853",
+    "name": "Grapploct",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0854",
+    "name": "Sinistea",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0855",
+    "name": "Polteageist",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0856",
+    "name": "Hatenna",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0857",
+    "name": "Hattrem",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0858",
+    "name": "Hatterene",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0859",
+    "name": "Impidimp",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0860",
+    "name": "Morgrem",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0861",
+    "name": "Grimmsnarl",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0866",
+    "name": "Mr. Rime",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0867",
+    "name": "Runerigus",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0868",
+    "name": "Milcery",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0869",
+    "name": "Alcremie",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0870",
+    "name": "Falinks",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0871",
+    "name": "Pincurchin",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0872",
+    "name": "Snom",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0873",
+    "name": "Frosmoth",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0874",
+    "name": "Stonjourner",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0875",
+    "name": "Eiscue",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0876",
+    "name": "Indeedee",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0877",
+    "name": "Morpeko",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0878",
+    "name": "Cufant",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0879",
+    "name": "Copperajah",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0880",
+    "name": "Dracozolt",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0881",
+    "name": "Arctozolt",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0882",
+    "name": "Dracovish",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0883",
+    "name": "Arctovish",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0884",
+    "name": "Duraludon",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0885",
+    "name": "Dreepy",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0886",
+    "name": "Drakloak",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0887",
+    "name": "Dragapult",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0888",
+    "name": "Zacian",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0889",
+    "name": "Zamazenta",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0890",
+    "name": "Eternatus",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0891",
+    "name": "Kubfu",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0892",
+    "name": "Urshifu",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0893",
+    "name": "Zarude",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0894",
+    "name": "Regieleki",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0895",
+    "name": "Regidrago",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0896",
+    "name": "Glastrier",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0897",
+    "name": "Spectrier",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0898",
+    "name": "Calyrex",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0900",
+    "name": "Kleavor",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0902",
+    "name": "Basculegion",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0904",
+    "name": "Overqwil",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0908",
+    "name": "Meowscarada",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0917",
+    "name": "Tarountula",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0918",
+    "name": "Spidops",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0924",
+    "name": "Tandemaus",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0925",
+    "name": "Maushold",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0927",
+    "name": "Dachsbun",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0931",
+    "name": "Squawkabilly",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0932",
+    "name": "Nacli",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0933",
+    "name": "Naclstack",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0934",
+    "name": "Garganacl",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0936",
+    "name": "Armarouge",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0937",
+    "name": "Ceruledge",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0939",
+    "name": "Bellibolt",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0940",
+    "name": "Wattrel",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0941",
+    "name": "Kilowattrel",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0942",
+    "name": "Maschiff",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0943",
+    "name": "Mabosstiff",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0944",
+    "name": "Shroodle",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0945",
+    "name": "Grafaiai",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0946",
+    "name": "Bramblin",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0947",
+    "name": "Brambleghast",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0948",
+    "name": "Toedscool",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0949",
+    "name": "Toedscruel",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0950",
+    "name": "Klawf",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0951",
+    "name": "Capsakid",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0952",
+    "name": "Scovillain",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0953",
+    "name": "Rellor",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0954",
+    "name": "Rabsca",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0955",
+    "name": "Flittle",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0956",
+    "name": "Espathra",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0957",
+    "name": "Tinkatink",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0958",
+    "name": "Tinkatuff",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0959",
+    "name": "Tinkaton",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0960",
+    "name": "Wiglett",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0961",
+    "name": "Wugtrio",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0962",
+    "name": "Bombirdier",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0963",
+    "name": "Finizen",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0964",
+    "name": "Palafin",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0965",
+    "name": "Varoom",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0966",
+    "name": "Revavroom",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0967",
+    "name": "Cyclizar",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0968",
+    "name": "Orthworm",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0969",
+    "name": "Glimmet",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0970",
+    "name": "Glimmora",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0971",
+    "name": "Greavard",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0972",
+    "name": "Houndstone",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0973",
+    "name": "Flamigo",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0974",
+    "name": "Cetoddle",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0975",
+    "name": "Cetitan",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0976",
+    "name": "Veluza",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0977",
+    "name": "Dondozo",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0978",
+    "name": "Tatsugiri",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0981",
+    "name": "Farigiraf",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0982",
+    "name": "Dudunsparce",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0983",
+    "name": "Kingambit",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0984",
+    "name": "Great Tusk",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0985",
+    "name": "Scream Tail",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0986",
+    "name": "Brute Bonnet",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0987",
+    "name": "Flutter Mane",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0988",
+    "name": "Slither Wing",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0989",
+    "name": "Sandy Shocks",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0990",
+    "name": "Iron Treads",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0991",
+    "name": "Iron Bundle",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0992",
+    "name": "Iron Hands",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0993",
+    "name": "Iron Jugulis",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0994",
+    "name": "Iron Moth",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0995",
+    "name": "Iron Thorns",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0997",
+    "name": "Arctibax",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "0998",
+    "name": "Baxcalibur",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1000",
+    "name": "Gholdengo",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1001",
+    "name": "Wo-Chien",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1002",
+    "name": "Chien-Pao",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1003",
+    "name": "Ting-Lu",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1004",
+    "name": "Chi-Yu",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1005",
+    "name": "Roaring Moon",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1006",
+    "name": "Iron Valiant",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1007",
+    "name": "Koraidon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1008",
+    "name": "Miraidon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1009",
+    "name": "Walking Wake",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1010",
+    "name": "Iron Leaves",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1011",
+    "name": "Dipplin",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1012",
+    "name": "Poltchageist",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1013",
+    "name": "Sinistcha",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1014",
+    "name": "Okidogi",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1015",
+    "name": "Munkidori",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1016",
+    "name": "Fezandipiti",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1017",
+    "name": "Ogerpon",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1018",
+    "name": "Archaludon",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1019",
+    "name": "Hydrapple",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1020",
+    "name": "Gouging Fire",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1021",
+    "name": "Raging Bolt",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1022",
+    "name": "Iron Boulder",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1023",
+    "name": "Iron Crown",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1024",
+    "name": "Terapagos",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  },
+  {
+    "id": "1025",
+    "name": "Pecharunt",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": false,
+    "uploaded_to_home": false,
+    "caught_in_home": false
+  }
+]

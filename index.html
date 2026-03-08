@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Tracking</title>
+    <style>
+        :root {
+            /* Color System */
+            --primary-color: #667eea;
+            --primary-dark: #5568d3;
+            --secondary-color: #764ba2;
+            --accent-red: #ff6b6b;
+            --accent-cyan: #4ecdc4;
+            --success-color: #48bb78;
+            --success-light: #f0fff4;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-muted: #a0aec0;
+            --border-color: #e2e8f0;
+
+            /* Spacing System */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            /* Typography */
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.2s ease;
+            --transition-slow: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--primary-color);
+            min-height: 100vh;
+            padding: var(--spacing-md);
+            line-height: var(--line-height-normal);
+            font-size: clamp(16px, 1vw, 18px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            line-height: var(--line-height-tight);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.125rem);
+            opacity: 0.95;
+            font-weight: 400;
+            line-height: var(--line-height-normal);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .controls {
+            padding: var(--spacing-xl);
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--bg-tertiary);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            min-height: 44px;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .filter-btn:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-btn.active {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .filter-btn.all {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .filter-btn.all:hover {
+            background: var(--primary-dark);
+        }
+
+        .filter-btn.app {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .filter-btn.app:hover {
+            background: #ff5252;
+        }
+
+        .filter-btn.home {
+            background: var(--accent-cyan);
+            color: white;
+        }
+
+        .filter-btn.home:hover {
+            background: #3dbdb4;
+        }
+
+        .table-container {
+            padding: var(--spacing-xl);
+            overflow-x: auto;
+            display: none;
+        }
+
+        .table-container.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        th {
+            padding: var(--spacing-lg);
+            text-align: left;
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            letter-spacing: 0.02em;
+            line-height: var(--line-height-tight);
+        }
+
+        tbody tr {
+            transition: all var(--transition-base);
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+
+        tbody tr:hover {
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        tbody tr.hidden {
+            display: none;
+        }
+
+        td {
+            padding: var(--spacing-lg);
+            font-size: var(--font-size-base);
+            vertical-align: middle;
+        }
+
+        .pokemon-id {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: var(--font-size-lg);
+        }
+
+        .pokemon-name {
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: var(--line-height-normal);
+        }
+
+        .sprite-placeholder {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            border: 2px solid var(--border-color);
+        }
+
+        .sprite-img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* Color coding for rows */
+        tr.both-sources {
+            background: rgba(255, 107, 107, 0.04);
+        }
+
+        tr.app-only {
+            background: rgba(255, 107, 107, 0.04);
+        }
+
+        tr.home-only {
+            background: rgba(78, 205, 196, 0.04);
+        }
+
+        .source-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-right: var(--spacing-xs);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: all var(--transition-base);
+        }
+
+        .source-badge img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+
+        .badge-app {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .badge-home {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .legend {
+            padding: var(--spacing-lg) var(--spacing-xl);
+            background: var(--bg-secondary);
+            border-top: 2px solid var(--bg-tertiary);
+        }
+
+        .legend h3 {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+
+        .legend-items {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--border-color);
+        }
+
+        .legend-both {
+            background: rgba(255, 107, 107, 0.15);
+        }
+
+        .legend-app {
+            background: rgba(255, 107, 107, 0.15);
+        }
+
+        .legend-home {
+            background: rgba(78, 205, 196, 0.15);
+        }
+
+        /* Filter Stats Styles */
+        .filter-stats {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            align-items: center;
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-lg);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base);
+        }
+
+        .stat-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .stat-number {
+            color: var(--primary-color);
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+        }
+
+        /* View Toggle Styles */
+        .view-toggle {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .view-btn {
+            min-height: 44px;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--radius-xl);
+            background: white;
+            color: var(--primary-color);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .view-btn:active {
+            transform: translateY(0);
+        }
+
+        .view-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Grid View Styles */
+        .grid-container {
+            padding: var(--spacing-xl);
+            display: none;
+        }
+
+        .grid-container.active {
+            display: block;
+        }
+
+        .pokemon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .pokemon-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: 2px solid var(--border-color);
+        }
+
+        .pokemon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .pokemon-card.hidden {
+            display: none;
+        }
+
+        .pokemon-card.both-sources {
+            background: rgba(255, 107, 107, 0.03);
+            border-color: rgba(255, 107, 107, 0.2);
+        }
+
+        .pokemon-card.app-only {
+            background: rgba(255, 107, 107, 0.03);
+            border-color: rgba(255, 107, 107, 0.2);
+        }
+
+        .pokemon-card.home-only {
+            background: rgba(78, 205, 196, 0.03);
+            border-color: rgba(78, 205, 196, 0.2);
+        }
+
+        .card-sprite {
+            width: 96px;
+            height: 96px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            border: 2px solid var(--border-color);
+        }
+
+        .card-sprite-img {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .card-id {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-sm);
+            line-height: var(--line-height-tight);
+        }
+
+        .card-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-md);
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: var(--line-height-normal);
+        }
+
+        .card-badges {
+            display: flex;
+            gap: var(--spacing-xs);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Catch Button Styles */
+        .catch-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .catch-btn {
+            min-width: 44px;
+            min-height: 44px;
+            padding: var(--spacing-sm);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-full);
+            background: white;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .catch-btn:not(:has(img)) {
+            border-radius: var(--radius-lg);
+            width: auto;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .catch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .catch-btn:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .catch-btn img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .catch-btn.caught {
+            border-color: var(--success-color);
+            background: var(--success-light);
+        }
+
+        .catch-btn.caught:hover {
+            border-color: var(--success-color);
+            box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+        }
+
+        .catch-btn.uploaded {
+            border-color: var(--primary-color);
+            background: rgba(102, 126, 234, 0.08);
+        }
+
+        .catch-btn.uploaded:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .catch-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Caught Pokemon Styling */
+        tr.caught-pokemon {
+            opacity: 0.7;
+            background: rgba(72, 187, 120, 0.05) !important;
+        }
+
+        .pokemon-card.caught-pokemon {
+            opacity: 0.85;
+            background: rgba(72, 187, 120, 0.08) !important;
+            border-color: rgba(72, 187, 120, 0.3);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-left: var(--spacing-xs);
+        }
+
+        .status-caught {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .status-uploaded {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-sm);
+            }
+
+            .container {
+                border-radius: var(--radius-md);
+            }
+
+            header {
+                padding: var(--spacing-lg);
+            }
+
+            .controls {
+                padding: var(--spacing-lg);
+            }
+
+            .filter-buttons {
+                gap: var(--spacing-sm);
+            }
+
+            .filter-btn {
+                font-size: var(--font-size-sm);
+                padding: var(--spacing-sm) var(--spacing-lg);
+            }
+
+            .table-container {
+                padding: var(--spacing-md);
+            }
+
+            table {
+                font-size: var(--font-size-sm);
+            }
+
+            th, td {
+                padding: var(--spacing-md);
+            }
+
+            .sprite-img,
+            .sprite-placeholder {
+                width: 48px;
+                height: 48px;
+            }
+
+            .card-sprite,
+            .card-sprite-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .pokemon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: var(--spacing-md);
+            }
+
+            .pokemon-card {
+                padding: var(--spacing-md);
+            }
+
+            .view-toggle {
+                gap: var(--spacing-sm);
+            }
+
+            .view-btn {
+                flex: 1;
+                min-width: 0;
+                justify-content: center;
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: var(--font-size-sm);
+            }
+
+            .legend {
+                padding: var(--spacing-md);
+            }
+
+            .legend-items {
+                gap: var(--spacing-md);
+            }
+
+            .filter-stats {
+                padding: var(--spacing-sm);
+                gap: var(--spacing-sm);
+            }
+
+            .stat-item {
+                font-size: var(--font-size-sm);
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+        }
+
+        /* Search Box Styles */
+        .search-container {
+            margin-top: var(--spacing-lg);
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            min-height: 44px;
+            padding: var(--spacing-md) var(--spacing-xl);
+            padding-left: var(--spacing-2xl);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-base);
+            font-family: inherit;
+            background: white;
+            transition: all var(--transition-base);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+            font-size: var(--font-size-lg);
+        }
+
+        .clear-search {
+            position: absolute;
+            right: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--text-muted);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            width: 20px;
+            height: 20px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+            padding: 0;
+            transition: all var(--transition-base);
+        }
+
+        .clear-search:hover {
+            background: var(--text-primary);
+        }
+
+        .clear-search.visible {
+            display: flex;
+        }
+
+        /* Focus states for accessibility */
+        .filter-btn:focus,
+        .view-btn:focus,
+        .catch-btn:focus,
+        .search-input:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Prevent layout shift during loading */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>National Pokédex Tracker</h1>
+            <p class="subtitle">追蹤 GO 和 Home 中缺失的 Pokémon</p>
+        </header>
+
+        <div class="controls">
+            <div class="filter-buttons">
+                <button class="filter-btn all active" data-filter="all">
+                    🌟 全部顯示
+                </button>
+                <button class="filter-btn app" data-filter="app">
+                    📱 GO 未捕捉
+                </button>
+                <button class="filter-btn home" data-filter="home">
+                    🏠 Home 未上傳
+                </button>
+                <button class="filter-btn all" data-filter="both">
+                    🔄 兩個都缺
+                </button>
+                <button class="filter-btn" style="background: #48bb78; color: white;" data-filter="caught">
+                    ✅ 已捕捉
+                </button>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="list">
+                    <span>📋</span>
+                    <span>列表檢視</span>
+                </button>
+                <button class="view-btn" data-view="grid">
+                    <span>🎴</span>
+                    <span>網格檢視</span>
+                </button>
+            </div>
+            <div class="filter-stats" id="filter-stats">
+                <!-- Dynamic stats will be displayed here -->
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text"
+                           id="search-input"
+                           class="search-input"
+                           placeholder="搜尋 Pokemon 名稱或編號..."
+                           autocomplete="off">
+                    <button class="clear-search" id="clear-search" aria-label="清除搜尋">✕</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container active">
+            <table id="pokemon-table">
+                <thead>
+                    <tr>
+                        <th>編號</th>
+                        <th>名稱</th>
+                        <th>Sprite</th>
+                        <th>圖鑑</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="pokemon-tbody">
+                    <!-- Data will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid-container">
+            <div class="pokemon-grid" id="pokemon-grid">
+                <!-- Grid cards will be loaded here -->
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>📊 顏色說明</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-color legend-both"></div>
+                    <span>兩者皆缺失</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-app"></div>
+                    <span>僅 GO App 缺失</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-home"></div>
+                    <span>僅 GO Home 缺失</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let pokemonData = [];
+        let currentView = 'list';
+        let currentFilter = 'all';
+
+        // Load Pokemon data
+        async function loadData() {
+            try {
+                const response = await fetch('pokemon_data.json');
+                pokemonData = await response.json();
+                pokemonData = loadSavedData(pokemonData);
+                renderTable(pokemonData);
+                renderGrid(pokemonData);
+                updateFilterStats(currentFilter);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('pokemon-tbody').innerHTML =
+                    '<tr><td colspan="4" style="text-align: center; padding: 30px; color: #e53e3e;">無法載入資料。請確保 pokemon_data.json 存在。</td></tr>';
+                document.getElementById('pokemon-grid').innerHTML =
+                    '<div style="text-align: center; padding: 30px; color: #e53e3e;">無法載入資料。請確保 pokemon_data.json 存在。</div>';
+            }
+        }
+
+        // Render table with data
+        function renderTable(data) {
+            const tbody = document.getElementById('pokemon-tbody');
+            tbody.innerHTML = '';
+
+            data.forEach(pokemon => {
+                const tr = document.createElement('tr');
+
+                // Determine row class based on sources
+                if (pokemon.in_app && pokemon.in_home) {
+                    tr.classList.add('both-sources');
+                    tr.dataset.source = 'both';
+                } else if (pokemon.in_app) {
+                    tr.classList.add('app-only');
+                    tr.dataset.source = 'app';
+                } else {
+                    tr.classList.add('home-only');
+                    tr.dataset.source = 'home';
+                }
+
+                // Build source badges with sphere images
+                let badges = '';
+                if (pokemon.in_app) {
+                    const appSphere = pokemon.caught_in_app ? 'green-sphere.png' : 'red-sphere.png';
+                    badges += `<span class="source-badge badge-app"><img src="sprites/items/underground/${appSphere}" alt="${pokemon.caught_in_app ? '已捕捉' : '未捕捉'}">App</span>`;
+                }
+                if (pokemon.in_home) {
+                    const homeSphere = pokemon.uploaded_to_home ? 'green-sphere.png' : 'red-sphere.png';
+                    badges += `<span class="source-badge badge-home"><img src="sprites/items/underground/${homeSphere}" alt="${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}">Home</span>`;
+                }
+
+                // Convert ID to number for sprite path
+                const spriteId = parseInt(pokemon.id, 10);
+                const spritePath = `sprites/pokemon/${spriteId}.png`;
+
+                // Add caught class if caught
+                if (pokemon.caught_in_app || pokemon.uploaded_to_home) {
+                    tr.classList.add('caught-pokemon');
+                }
+
+                // Build action buttons - 簡單邏輯：兩組獨立的按鈕
+                const appBallImg = pokemon.caught_in_app ? 'poke-ball.png' : 'premier-ball.png';
+                const actionButtons = `
+                    <button class="catch-btn ${pokemon.caught_in_app ? 'caught' : ''}"
+                            onclick="toggleCatch('${pokemon.id}', 'app')"
+                            title="${pokemon.caught_in_app ? '已捕捉' : '未捕捉'}">
+                        <img src="sprites/items/${appBallImg}" alt="${pokemon.caught_in_app ? '已捕捉' : '未捕捉'}">
+                    </button>
+                    <button class="catch-btn ${pokemon.uploaded_to_home ? 'uploaded' : ''}"
+                            onclick="toggleCatch('${pokemon.id}', 'home')"
+                            title="${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}">
+                        ${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}
+                    </button>
+                `;
+
+                tr.innerHTML = `
+                    <td class="pokemon-id">#${pokemon.id}</td>
+                    <td class="pokemon-name">${pokemon.name}</td>
+                    <td>
+                        <img src="${spritePath}" alt="${pokemon.name}" class="sprite-img"
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'sprite-placeholder\\'>?</div>';">
+                    </td>
+                    <td>${badges}</td>
+                    <td>
+                        <div class="catch-actions">
+                            ${actionButtons}
+                        </div>
+                    </td>
+                `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Update filter statistics based on current filter
+        function updateFilterStats(filter) {
+            const statsContainer = document.getElementById('filter-stats');
+
+            if (filter === 'all') {
+                // 全部顯示 - 不顯示統計
+                statsContainer.innerHTML = '';
+                return;
+            }
+
+            let caught = 0;
+            let uncaught = 0;
+
+            if (filter === 'app') {
+                // GO App 統計
+                pokemonData.forEach(p => {
+                    if (p.in_app) {
+                        if (p.caught_in_app) {
+                            caught++;
+                        } else {
+                            uncaught++;
+                        }
+                    }
+                });
+                statsContainer.innerHTML = `
+                    <div class="stat-item">
+                        <img src="sprites/items/poke-ball.png" alt="已捕捉">
+                        <span>已捕捉 <span class="stat-number">${caught}</span> 隻</span>
+                    </div>
+                    <div class="stat-item">
+                        <img src="sprites/items/premier-ball.png" alt="未捕捉">
+                        <span>未捕捉 <span class="stat-number">${uncaught}</span> 隻</span>
+                    </div>
+                `;
+            } else if (filter === 'home') {
+                // GO Home 統計
+                pokemonData.forEach(p => {
+                    if (p.in_home) {
+                        if (p.uploaded_to_home) {
+                            caught++;
+                        } else {
+                            uncaught++;
+                        }
+                    }
+                });
+                statsContainer.innerHTML = `
+                    <div class="stat-item">
+                        <img src="sprites/items/poke-ball.png" alt="已上傳">
+                        <span>已上傳 <span class="stat-number">${caught}</span> 隻</span>
+                    </div>
+                    <div class="stat-item">
+                        <img src="sprites/items/premier-ball.png" alt="未上傳">
+                        <span>未上傳 <span class="stat-number">${uncaught}</span> 隻</span>
+                    </div>
+                `;
+            } else if (filter === 'both') {
+                // 交集統計
+                pokemonData.forEach(p => {
+                    if (p.in_app && p.in_home) {
+                        if (p.caught_in_app && p.uploaded_to_home) {
+                            caught++;
+                        } else {
+                            uncaught++;
+                        }
+                    }
+                });
+                statsContainer.innerHTML = `
+                    <div class="stat-item">
+                        <img src="sprites/items/poke-ball.png" alt="已完成">
+                        <span>已完成 <span class="stat-number">${caught}</span> 隻</span>
+                    </div>
+                    <div class="stat-item">
+                        <img src="sprites/items/premier-ball.png" alt="未完成">
+                        <span>未完成 <span class="stat-number">${uncaught}</span> 隻</span>
+                    </div>
+                `;
+            } else if (filter === 'caught') {
+                // 已捕捉統計
+                caught = pokemonData.filter(p => p.caught_in_app || p.uploaded_to_home).length;
+                const total = pokemonData.length;
+                uncaught = total - caught;
+                statsContainer.innerHTML = `
+                    <div class="stat-item">
+                        <img src="sprites/items/poke-ball.png" alt="已捕捉">
+                        <span>已捕捉 <span class="stat-number">${caught}</span> 隻</span>
+                    </div>
+                    <div class="stat-item">
+                        <img src="sprites/items/premier-ball.png" alt="未捕捉">
+                        <span>未捕捉 <span class="stat-number">${uncaught}</span> 隻</span>
+                    </div>
+                `;
+            }
+        }
+
+        // Render grid with data
+        function renderGrid(data) {
+            const grid = document.getElementById('pokemon-grid');
+            grid.innerHTML = '';
+
+            data.forEach(pokemon => {
+                const card = document.createElement('div');
+                card.classList.add('pokemon-card');
+
+                // Determine card class based on sources
+                if (pokemon.in_app && pokemon.in_home) {
+                    card.classList.add('both-sources');
+                    card.dataset.source = 'both';
+                } else if (pokemon.in_app) {
+                    card.classList.add('app-only');
+                    card.dataset.source = 'app';
+                } else {
+                    card.classList.add('home-only');
+                    card.dataset.source = 'home';
+                }
+
+                // Build source badges with sphere images
+                let badges = '';
+                if (pokemon.in_app) {
+                    const appSphere = pokemon.caught_in_app ? 'green-sphere.png' : 'red-sphere.png';
+                    badges += `<span class="source-badge badge-app"><img src="sprites/items/underground/${appSphere}" alt="${pokemon.caught_in_app ? '已捕捉' : '未捕捉'}">App</span>`;
+                }
+                if (pokemon.in_home) {
+                    const homeSphere = pokemon.uploaded_to_home ? 'green-sphere.png' : 'red-sphere.png';
+                    badges += `<span class="source-badge badge-home"><img src="sprites/items/underground/${homeSphere}" alt="${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}">Home</span>`;
+                }
+
+                // Convert ID to number for sprite path
+                const spriteId = parseInt(pokemon.id, 10);
+                const spritePath = `sprites/pokemon/${spriteId}.png`;
+
+                // Add caught class if caught
+                if (pokemon.caught_in_app || pokemon.uploaded_to_home) {
+                    card.classList.add('caught-pokemon');
+                }
+
+                // Build action buttons - 簡單邏輯：兩組獨立的按鈕
+                const appBallImg = pokemon.caught_in_app ? 'poke-ball.png' : 'premier-ball.png';
+                const actionButtons = `
+                    <button class="catch-btn ${pokemon.caught_in_app ? 'caught' : ''}"
+                            onclick="toggleCatch('${pokemon.id}', 'app')"
+                            title="${pokemon.caught_in_app ? '已捕捉' : '未捕捉'}">
+                        <img src="sprites/items/${appBallImg}" alt="${pokemon.caught_in_app ? '已捕捉' : '未捕捉'}">
+                    </button>
+                    <button class="catch-btn ${pokemon.uploaded_to_home ? 'uploaded' : ''}"
+                            onclick="toggleCatch('${pokemon.id}', 'home')"
+                            title="${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}">
+                        ${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}
+                    </button>
+                `;
+
+                card.innerHTML = `
+                    <div class="card-sprite">
+                        <img src="${spritePath}" alt="${pokemon.name}" class="card-sprite-img"
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='?';">
+                    </div>
+                    <div class="card-id">#${pokemon.id}</div>
+                    <div class="card-name">${pokemon.name}</div>
+                    <div class="card-badges">${badges}</div>
+                    <div class="catch-actions">
+                        ${actionButtons}
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter functionality
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.dataset.filter;
+                    currentFilter = filter;
+                    applyFilter(filter);
+                    updateFilterStats(filter);
+                });
+            });
+        }
+
+        // Apply filter to both views
+        function applyFilter(filter) {
+            // Filter table rows
+            const rows = document.querySelectorAll('#pokemon-tbody tr');
+            rows.forEach((row, index) => {
+                const source = row.dataset.source;
+                const pokemon = pokemonData[index];
+                if (shouldShow(source, filter, pokemon)) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+
+            // Filter grid cards
+            const cards = document.querySelectorAll('.pokemon-card');
+            cards.forEach((card, index) => {
+                const source = card.dataset.source;
+                const pokemon = pokemonData[index];
+                if (shouldShow(source, filter, pokemon)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Helper function to determine if element should be shown
+        function shouldShow(source, filter, pokemon = null) {
+            if (filter === 'all') {
+                // 全部顯示（聯集）- 顯示所有 Pokemon
+                return true;
+            }
+            if (filter === 'both') {
+                // 交集 - 只顯示同時在兩個清單中的
+                return source === 'both';
+            }
+            if (filter === 'app') {
+                // GO App - 顯示在 App 清單中的（包含交集）
+                return source === 'app' || source === 'both';
+            }
+            if (filter === 'home') {
+                // GO Home - 顯示在 Home 清單中的（包含交集）
+                return source === 'home' || source === 'both';
+            }
+            if (filter === 'caught') {
+                // 已捕捉 - 顯示已捕捉或已上傳的
+                return pokemon && (pokemon.caught_in_app || pokemon.uploaded_to_home);
+            }
+            return false;
+        }
+
+        // View toggle functionality
+        function setupViewToggle() {
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const tableContainer = document.querySelector('.table-container');
+            const gridContainer = document.querySelector('.grid-container');
+
+            console.log('View toggle setup:', {
+                viewButtons: viewButtons.length,
+                tableContainer: !!tableContainer,
+                gridContainer: !!gridContainer
+            });
+
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    viewButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const view = btn.dataset.view;
+                    currentView = view;
+
+                    console.log('Switching to view:', view);
+
+                    // Toggle containers
+                    if (view === 'list') {
+                        tableContainer.classList.add('active');
+                        gridContainer.classList.remove('active');
+                        console.log('List view activated');
+                    } else {
+                        tableContainer.classList.remove('active');
+                        gridContainer.classList.add('active');
+                        console.log('Grid view activated');
+                    }
+                });
+            });
+        }
+
+        // Toggle catch status - 簡單邏輯：獨立切換兩個 flag
+        function toggleCatch(pokemonId, type) {
+            const pokemon = pokemonData.find(p => p.id === pokemonId);
+            if (!pokemon) return;
+
+            if (type === 'app') {
+                // Toggle caught_in_app flag
+                pokemon.caught_in_app = !pokemon.caught_in_app;
+            } else if (type === 'home') {
+                // Toggle uploaded_to_home flag
+                pokemon.uploaded_to_home = !pokemon.uploaded_to_home;
+            }
+
+            // Save to localStorage
+            savePokemonData();
+
+            // Re-render both views
+            renderTable(pokemonData);
+            renderGrid(pokemonData);
+
+            // Re-apply current filter
+            applyFilter(currentFilter);
+
+            // Update filter stats
+            updateFilterStats(currentFilter);
+
+            console.log(`${pokemon.name} 狀態更新:`, {
+                caught_in_app: pokemon.caught_in_app,
+                uploaded_to_home: pokemon.uploaded_to_home
+            });
+        }
+
+        // Save pokemon data to localStorage
+        function savePokemonData() {
+            try {
+                localStorage.setItem('pokemonData', JSON.stringify(pokemonData));
+                console.log('資料已儲存到 localStorage');
+            } catch (error) {
+                console.error('儲存資料失敗:', error);
+            }
+        }
+
+        // Load pokemon data from localStorage if available
+        function loadSavedData(data) {
+            try {
+                const saved = localStorage.getItem('pokemonData');
+                if (saved) {
+                    const savedData = JSON.parse(saved);
+                    // Merge saved catch status with current data
+                    data.forEach(pokemon => {
+                        const savedPokemon = savedData.find(p => p.id === pokemon.id);
+                        if (savedPokemon) {
+                            pokemon.caught_in_app = savedPokemon.caught_in_app || false;
+                            pokemon.uploaded_to_home = savedPokemon.uploaded_to_home || false;
+                        }
+                    });
+                    console.log('已從 localStorage 載入捕捉狀態');
+                }
+            } catch (error) {
+                console.error('載入儲存資料失敗:', error);
+            }
+            return data;
+        }
+
+        // Export data to JSON file
+        function exportData() {
+            const dataStr = JSON.stringify(pokemonData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'pokemon_data_backup.json';
+            link.click();
+            URL.revokeObjectURL(url);
+            console.log('資料已匯出');
+        }
+
+        // Search functionality
+        let currentSearchTerm = '';
+
+        function setupSearch() {
+            const searchInput = document.getElementById('search-input');
+            const clearButton = document.getElementById('clear-search');
+
+            // Handle search input
+            searchInput.addEventListener('input', (e) => {
+                currentSearchTerm = e.target.value.trim();
+
+                // Show/hide clear button
+                if (currentSearchTerm) {
+                    clearButton.classList.add('visible');
+                } else {
+                    clearButton.classList.remove('visible');
+                }
+
+                // Apply search filter
+                applySearch();
+            });
+
+            // Handle clear button
+            clearButton.addEventListener('click', () => {
+                searchInput.value = '';
+                currentSearchTerm = '';
+                clearButton.classList.remove('visible');
+                applySearch();
+                searchInput.focus();
+            });
+
+            // Handle Enter key
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    currentSearchTerm = '';
+                    clearButton.classList.remove('visible');
+                    applySearch();
+                }
+            });
+        }
+
+        function applySearch() {
+            if (!currentSearchTerm) {
+                // No search term, just apply current filter
+                applyFilter(currentFilter);
+                return;
+            }
+
+            const searchLower = currentSearchTerm.toLowerCase();
+
+            // Filter table rows
+            const rows = document.querySelectorAll('#pokemon-tbody tr');
+            rows.forEach((row, index) => {
+                const pokemon = pokemonData[index];
+                const source = row.dataset.source;
+
+                // Check if matches search
+                const matchesSearch = matchesPokemon(pokemon, searchLower);
+
+                // Check if matches current filter
+                const matchesFilter = shouldShow(source, currentFilter, pokemon);
+
+                // Show only if matches both search and filter
+                if (matchesSearch && matchesFilter) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+
+            // Filter grid cards
+            const cards = document.querySelectorAll('.pokemon-card');
+            cards.forEach((card, index) => {
+                const pokemon = pokemonData[index];
+                const source = card.dataset.source;
+
+                // Check if matches search
+                const matchesSearch = matchesPokemon(pokemon, searchLower);
+
+                // Check if matches current filter
+                const matchesFilter = shouldShow(source, currentFilter, pokemon);
+
+                // Show only if matches both search and filter
+                if (matchesSearch && matchesFilter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function matchesPokemon(pokemon, searchTerm) {
+            // Match by name (case insensitive)
+            if (pokemon.name.toLowerCase().includes(searchTerm)) {
+                return true;
+            }
+
+            // Match by ID (handle both "249" and "0249")
+            const searchNumber = searchTerm.replace(/\D/g, ''); // Remove non-digits
+            if (searchNumber) {
+                const pokemonNumber = pokemon.id.replace(/^0+/, ''); // Remove leading zeros
+                const paddedSearch = searchNumber.padStart(4, '0'); // Pad to 4 digits
+
+                // Match either padded or unpadded
+                if (pokemon.id === paddedSearch || pokemonNumber === searchNumber) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            setupFilters();
+            setupViewToggle();
+            setupSearch();
+        });
+    </script>
+</body>
+</html>
