@@ -12,7 +12,7 @@
     "name": "Steelix",
     "in_app": true,
     "in_home": false,
-    "caught_in_app": false,
+    "caught_in_app": true,
     "uploaded_to_home": false
   },
   {
