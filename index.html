@@ -1482,7 +1482,9 @@
                     console.log('已從 GitHub 載入資料');
                 } else {
                     // Fallback to local file
-                    const response = await fetch('pokemon_data.json');
+                    const response = await fetch('pokemon_data.json', {
+                        cache: 'no-cache'
+                    });
                     pokemonData = await response.json();
                     console.log('已從本地檔案載入資料');
                 }
