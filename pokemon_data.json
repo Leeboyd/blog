@@ -1060,7 +1060,7 @@
     "name": "Kartana",
     "in_app": true,
     "in_home": true,
-    "caught_in_app": false,
+    "caught_in_app": true,
     "uploaded_to_home": false
   },
   {
