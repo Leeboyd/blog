@@ -104,14 +104,6 @@
     "uploaded_to_home": false
   },
   {
-    "id": "0386",
-    "name": "Deoxys",
-    "in_app": true,
-    "in_home": true,
-    "caught_in_app": true,
-    "uploaded_to_home": true
-  },
-  {
     "id": "0404",
     "name": "Luxio",
     "in_app": true,
@@ -174,14 +166,6 @@
     "in_home": false,
     "caught_in_app": false,
     "uploaded_to_home": false
-  },
-  {
-    "id": "0433",
-    "name": "Chingling",
-    "in_app": true,
-    "in_home": false,
-    "caught_in_app": true,
-    "uploaded_to_home": true
   },
   {
     "id": "0439",
