@@ -1366,20 +1366,30 @@
                 return;
             }
 
+            // Save original index for rollback
+            const originalIndex = pokemonData.findIndex(p => p.id === pokemonId);
+            if (originalIndex === -1) {
+                alert('找不到此 Pokemon');
+                return;
+            }
+
             try {
                 showSyncStatus('正在歸檔...', 'syncing');
 
                 // Load archived data
                 const archivedData = await loadArchivedData();
 
-                // Add pokemon to archived data
-                archivedData.push(pokemon);
+                // Check if already archived
+                if (archivedData.find(p => p.id === pokemonId)) {
+                    alert('此 Pokemon 已經在歸檔列表中');
+                    return;
+                }
 
                 // Remove pokemon from main data
-                const index = pokemonData.findIndex(p => p.id === pokemonId);
-                if (index !== -1) {
-                    pokemonData.splice(index, 1);
-                }
+                pokemonData.splice(originalIndex, 1);
+
+                // Add pokemon to archived data
+                archivedData.push(pokemon);
 
                 // Push both files to GitHub
                 const success = await pushBothFilesToGitHub(pokemonData, archivedData);
@@ -1398,13 +1408,14 @@
                     showSyncStatus('✓ 已歸檔到 GitHub', 'success');
                     console.log(`${pokemon.name} 已歸檔`);
                 } else {
-                    // Restore pokemon if sync failed
-                    pokemonData.splice(index, 0, pokemon);
-                    archivedData.pop();
+                    // Restore pokemon if sync failed - insert at original position
+                    pokemonData.splice(originalIndex, 0, pokemon);
                     showSyncStatus('✗ 歸檔失敗', 'error');
                 }
             } catch (error) {
                 console.error('歸檔失敗:', error);
+                // Restore pokemon on error - insert at original position
+                pokemonData.splice(originalIndex, 0, pokemon);
                 showSyncStatus('✗ 歸檔失敗', 'error');
                 alert('歸檔失敗，請稍後再試');
             }
