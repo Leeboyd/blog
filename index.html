@@ -1395,18 +1395,13 @@
                 const success = await pushBothFilesToGitHub(pokemonData, archivedData);
 
                 if (success) {
-                    // Re-render both views
-                    renderTable(pokemonData);
-                    renderGrid(pokemonData);
-
-                    // Re-apply current filter
-                    applyFilter(currentFilter);
-
-                    // Update filter stats
-                    updateFilterStats(currentFilter);
-
                     showSyncStatus('✓ 已歸檔到 GitHub', 'success');
                     console.log(`${pokemon.name} 已歸檔`);
+
+                    // Reload page to ensure fresh data from GitHub
+                    setTimeout(() => {
+                        location.reload();
+                    }, 500);
                 } else {
                     // Restore pokemon if sync failed - insert at original position
                     pokemonData.splice(originalIndex, 0, pokemon);
