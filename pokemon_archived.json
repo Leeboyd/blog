@@ -86,5 +86,13 @@
     "in_home": false,
     "caught_in_app": true,
     "uploaded_to_home": true
+  },
+  {
+    "id": "0497",
+    "name": "Serperior",
+    "in_app": true,
+    "in_home": false,
+    "caught_in_app": true,
+    "uploaded_to_home": true
   }
 ]
