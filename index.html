@@ -1351,6 +1351,215 @@
             }
         }
 
+        // Archive Pokemon - update both pokemon_data.json and pokemon_archived.json
+        async function archivePokemon(pokemonId) {
+            if (!confirm('確定要將此 Pokemon 歸檔嗎？')) {
+                return;
+            }
+
+            const pokemon = pokemonData.find(p => p.id === pokemonId);
+            if (!pokemon) {
+                alert('找不到此 Pokemon');
+                return;
+            }
+
+            try {
+                showSyncStatus('正在歸檔...', 'syncing');
+
+                // Load archived data
+                const archivedData = await loadArchivedData();
+
+                // Add pokemon to archived data
+                archivedData.push(pokemon);
+
+                // Remove pokemon from main data
+                const index = pokemonData.findIndex(p => p.id === pokemonId);
+                if (index !== -1) {
+                    pokemonData.splice(index, 1);
+                }
+
+                // Push both files to GitHub
+                const success = await pushBothFilesToGitHub(pokemonData, archivedData);
+
+                if (success) {
+                    // Re-render both views
+                    renderTable(pokemonData);
+                    renderGrid(pokemonData);
+
+                    // Re-apply current filter
+                    applyFilter(currentFilter);
+
+                    // Update filter stats
+                    updateFilterStats(currentFilter);
+
+                    showSyncStatus('✓ 已歸檔到 GitHub', 'success');
+                    console.log(`${pokemon.name} 已歸檔`);
+                } else {
+                    // Restore pokemon if sync failed
+                    pokemonData.splice(index, 0, pokemon);
+                    archivedData.pop();
+                    showSyncStatus('✗ 歸檔失敗', 'error');
+                }
+            } catch (error) {
+                console.error('歸檔失敗:', error);
+                showSyncStatus('✗ 歸檔失敗', 'error');
+                alert('歸檔失敗，請稍後再試');
+            }
+        }
+
+        // Load archived pokemon data
+        async function loadArchivedData() {
+            const token = getGitHubToken();
+
+            if (token) {
+                try {
+                    const githubData = await fetchFromGitHub('pokemon_archived.json');
+                    if (githubData && githubData.content) {
+                        return githubData.content;
+                    }
+                } catch (error) {
+                    console.warn('從 GitHub 載入 archived 資料失敗:', error);
+                }
+            }
+
+            // Fallback to local file
+            try {
+                const response = await fetch('pokemon_archived.json', {
+                    cache: 'no-cache'
+                });
+                return await response.json();
+            } catch (error) {
+                console.error('載入 archived 資料失敗:', error);
+                return [];
+            }
+        }
+
+        // Fetch from GitHub with custom file path
+        async function fetchFromGitHub(filePath) {
+            const token = getGitHubToken();
+            if (!token) {
+                return null;
+            }
+
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    return null;
+                }
+
+                const data = await response.json();
+
+                // Decode base64 content with UTF-8 support
+                const binaryString = atob(data.content);
+                const bytes = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
+                const jsonString = new TextDecoder('utf-8').decode(bytes);
+                const content = JSON.parse(jsonString);
+
+                return {
+                    content: content,
+                    sha: data.sha
+                };
+            } catch (error) {
+                console.error('從 GitHub 獲取資料失敗:', error);
+                return null;
+            }
+        }
+
+        // Push both pokemon_data.json and pokemon_archived.json to GitHub
+        async function pushBothFilesToGitHub(mainData, archivedData) {
+            const token = getGitHubToken();
+            if (!token) {
+                console.log('未設定 GitHub Token，跳過同步');
+                return false;
+            }
+
+            try {
+                // Get current SHAs for both files
+                const [mainFileResponse, archivedFileResponse] = await Promise.all([
+                    fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`, {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }),
+                    fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/pokemon_archived.json`, {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    })
+                ]);
+
+                if (!mainFileResponse.ok || !archivedFileResponse.ok) {
+                    throw new Error('無法取得檔案 SHA');
+                }
+
+                const mainFile = await mainFileResponse.json();
+                const archivedFile = await archivedFileResponse.json();
+
+                // Encode both files
+                const encodeFile = (data) => {
+                    const jsonString = JSON.stringify(data, null, 2);
+                    const bytes = new TextEncoder().encode(jsonString);
+                    const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join('');
+                    return btoa(binString);
+                };
+
+                const mainContent = encodeFile(mainData);
+                const archivedContent = encodeFile(archivedData);
+
+                // Update both files
+                const [mainUpdateResponse, archivedUpdateResponse] = await Promise.all([
+                    fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Archive Pokemon - update main data',
+                            content: mainContent,
+                            sha: mainFile.sha,
+                            branch: GITHUB_CONFIG.branch
+                        })
+                    }),
+                    fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/pokemon_archived.json`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Archive Pokemon - update archived data',
+                            content: archivedContent,
+                            sha: archivedFile.sha,
+                            branch: GITHUB_CONFIG.branch
+                        })
+                    })
+                ]);
+
+                if (!mainUpdateResponse.ok || !archivedUpdateResponse.ok) {
+                    throw new Error('GitHub API 更新失敗');
+                }
+
+                return true;
+            } catch (error) {
+                console.error('推送到 GitHub 失敗:', error);
+                return false;
+            }
+        }
+
         // GitHub Settings Modal Functions
         function openGitHubSettings() {
             const modal = document.getElementById('github-modal');
@@ -1555,6 +1764,11 @@
                             title="${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}">
                         ${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}
                     </button>
+                    <button class="catch-btn archive-btn"
+                            onclick="archivePokemon('${pokemon.id}')"
+                            title="歸檔">
+                        <img src="sprites/items/oaks-parcel.png" alt="歸檔">
+                    </button>
                 `;
 
                 tr.innerHTML = `
@@ -1724,6 +1938,11 @@
                             onclick="toggleCatch('${pokemon.id}', 'home')"
                             title="${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}">
                         ${pokemon.uploaded_to_home ? '已上傳' : '未上傳'}
+                    </button>
+                    <button class="catch-btn archive-btn"
+                            onclick="archivePokemon('${pokemon.id}')"
+                            title="歸檔">
+                        <img src="sprites/items/oaks-parcel.png" alt="歸檔">
                     </button>
                 `;
 

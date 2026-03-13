@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>已歸檔 Pokemon - Go Tracking</title>
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --primary-dark: #5568d3;
+            --success-color: #48bb78;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --border-color: #e2e8f0;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --radius-md: 12px;
+            --radius-xl: 20px;
+            --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--primary-color);
+            min-height: 100vh;
+            padding: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: var(--spacing-xl);
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            position: absolute;
+            left: var(--spacing-xl);
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            transition: background 0.2s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .content {
+            padding: var(--spacing-xl);
+        }
+
+        .stats {
+            background: var(--bg-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stats-label {
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tbody tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        .pokemon-id {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .pokemon-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .sprite-img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+        }
+
+        .source-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .source-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .source-badge img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .badge-app {
+            background: #fef5e7;
+            color: #d68910;
+        }
+
+        .badge-home {
+            background: #ebf5fb;
+            color: #2874a6;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.5;
+        }
+
+        .loading {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← 返回主頁</a>
+            <h1>已歸檔 Pokemon</h1>
+            <p class="subtitle">已完成收集的 Pokemon 列表</p>
+        </header>
+
+        <div class="content">
+            <div class="stats">
+                <div class="stats-number" id="archived-count">0</div>
+                <div class="stats-label">已歸檔的 Pokemon</div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>編號</th>
+                            <th>名稱</th>
+                            <th>Sprite</th>
+                            <th>來源</th>
+                        </tr>
+                    </thead>
+                    <tbody id="archived-tbody">
+                        <tr>
+                            <td colspan="4" class="loading">載入中...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let archivedData = [];
+
+        // GitHub configuration
+        const GITHUB_CONFIG = {
+            repo: 'Leeboyd/blog',
+            filePath: 'pokemon_archived.json',
+            branch: 'master'
+        };
+
+        // Get GitHub token from localStorage
+        function getGitHubToken() {
+            return localStorage.getItem('github_token');
+        }
+
+        // Fetch archived data from GitHub
+        async function fetchFromGitHub() {
+            const token = getGitHubToken();
+            if (!token) {
+                return null;
+            }
+
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    return null;
+                }
+
+                const data = await response.json();
+
+                // Decode base64 content with UTF-8 support
+                const binaryString = atob(data.content);
+                const bytes = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
+                const jsonString = new TextDecoder('utf-8').decode(bytes);
+                const content = JSON.parse(jsonString);
+
+                return {
+                    content: content,
+                    sha: data.sha
+                };
+            } catch (error) {
+                console.error('從 GitHub 獲取資料失敗:', error);
+                return null;
+            }
+        }
+
+        // Load archived data
+        async function loadData() {
+            try {
+                // Try to load from GitHub first
+                const githubData = await fetchFromGitHub();
+
+                if (githubData && githubData.content) {
+                    archivedData = githubData.content;
+                    console.log('已從 GitHub 載入資料');
+                } else {
+                    // Fallback to local file
+                    const response = await fetch('pokemon_archived.json', {
+                        cache: 'no-cache'
+                    });
+                    archivedData = await response.json();
+                    console.log('已從本地檔案載入資料');
+                }
+
+                renderTable(archivedData);
+                updateStats(archivedData);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                showEmptyState('無法載入資料');
+            }
+        }
+
+        // Render table
+        function renderTable(data) {
+            const tbody = document.getElementById('archived-tbody');
+
+            if (data.length === 0) {
+                showEmptyState('尚未歸檔任何 Pokemon');
+                return;
+            }
+
+            tbody.innerHTML = '';
+
+            data.forEach(pokemon => {
+                const tr = document.createElement('tr');
+
+                // Sprite
+                const spriteId = parseInt(pokemon.id, 10);
+                const localSprite = `sprites/pokemon/${spriteId}.png`;
+                const remoteSprite = `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${spriteId}.png`;
+
+                // Build source badges
+                let badges = '';
+                if (pokemon.in_app) {
+                    const appSphere = pokemon.caught_in_app ? 'green-sphere.png' : 'red-sphere.png';
+                    badges += `<span class="source-badge badge-app"><img src="sprites/items/underground/${appSphere}" alt="">App</span>`;
+                }
+                if (pokemon.in_home) {
+                    const homeSphere = pokemon.uploaded_to_home ? 'green-sphere.png' : 'red-sphere.png';
+                    badges += `<span class="source-badge badge-home"><img src="sprites/items/underground/${homeSphere}" alt="">Home</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td class="pokemon-id">#${pokemon.id}</td>
+                    <td class="pokemon-name">${pokemon.name}</td>
+                    <td>
+                        <img src="${localSprite}" alt="${pokemon.name}" class="sprite-img"
+                             onerror="this.onerror=null; this.src='${remoteSprite}'; this.onerror=function(){this.style.display='none';}">
+                    </td>
+                    <td>
+                        <div class="source-badges">
+                            ${badges}
+                        </div>
+                    </td>
+                `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Update stats
+        function updateStats(data) {
+            document.getElementById('archived-count').textContent = data.length;
+        }
+
+        // Show empty state
+        function showEmptyState(message) {
+            const tbody = document.getElementById('archived-tbody');
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4" class="empty-state">
+                        <div class="empty-state-icon">📦</div>
+                        <div>${message}</div>
+                    </td>
+                </tr>
+            `;
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>
