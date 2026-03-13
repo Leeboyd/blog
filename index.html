@@ -1422,7 +1422,7 @@
 
             if (token) {
                 try {
-                    const githubData = await fetchFromGitHub('pokemon_archived.json');
+                    const githubData = await fetchFileFromGitHub('pokemon_archived.json');
                     if (githubData && githubData.content) {
                         return githubData.content;
                     }
@@ -1444,7 +1444,7 @@
         }
 
         // Fetch from GitHub with custom file path
-        async function fetchFromGitHub(filePath) {
+        async function fetchFileFromGitHub(filePath) {
             const token = getGitHubToken();
             if (!token) {
                 return null;
