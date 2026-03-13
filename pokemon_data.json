@@ -376,14 +376,6 @@
     "uploaded_to_home": false
   },
   {
-    "id": "0588",
-    "name": "Karrablast",
-    "in_app": false,
-    "in_home": true,
-    "caught_in_app": true,
-    "uploaded_to_home": true
-  },
-  {
     "id": "0598",
     "name": "Ferrothorn",
     "in_app": true,
