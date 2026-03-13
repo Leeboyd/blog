@@ -104,10 +104,10 @@
     "uploaded_to_home": false
   },
   {
-    "id": "0395",
-    "name": "Empoleon",
+    "id": "0386",
+    "name": "Deoxys",
     "in_app": true,
-    "in_home": false,
+    "in_home": true,
     "caught_in_app": true,
     "uploaded_to_home": true
   },
