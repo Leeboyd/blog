@@ -30,5 +30,13 @@
     "in_home": true,
     "caught_in_app": true,
     "uploaded_to_home": true
+  },
+  {
+    "id": "0234",
+    "name": "Stantler",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": true,
+    "uploaded_to_home": true
   }
 ]
