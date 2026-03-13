@@ -1502,8 +1502,16 @@
                     })
                 ]);
 
-                if (!mainFileResponse.ok || !archivedFileResponse.ok) {
-                    throw new Error('無法取得檔案 SHA');
+                if (!mainFileResponse.ok) {
+                    const error = await mainFileResponse.text();
+                    console.error('無法取得 pokemon_data.json SHA:', mainFileResponse.status, error);
+                    throw new Error(`無法取得 pokemon_data.json SHA: ${mainFileResponse.status}`);
+                }
+
+                if (!archivedFileResponse.ok) {
+                    const error = await archivedFileResponse.text();
+                    console.error('無法取得 pokemon_archived.json SHA:', archivedFileResponse.status, error);
+                    throw new Error(`無法取得 pokemon_archived.json SHA: ${archivedFileResponse.status}`);
                 }
 
                 const mainFile = await mainFileResponse.json();
@@ -1520,9 +1528,10 @@
                 const mainContent = encodeFile(mainData);
                 const archivedContent = encodeFile(archivedData);
 
-                // Update both files
-                const [mainUpdateResponse, archivedUpdateResponse] = await Promise.all([
-                    fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`, {
+                // Update main file first
+                const mainUpdateResponse = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`,
+                    {
                         method: 'PUT',
                         headers: {
                             'Authorization': `token ${token}`,
@@ -1535,8 +1544,19 @@
                             sha: mainFile.sha,
                             branch: GITHUB_CONFIG.branch
                         })
-                    }),
-                    fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/pokemon_archived.json`, {
+                    }
+                );
+
+                if (!mainUpdateResponse.ok) {
+                    const error = await mainUpdateResponse.text();
+                    console.error('更新 pokemon_data.json 失敗:', mainUpdateResponse.status, error);
+                    throw new Error(`更新 pokemon_data.json 失敗: ${mainUpdateResponse.status}`);
+                }
+
+                // Then update archived file
+                const archivedUpdateResponse = await fetch(
+                    `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/pokemon_archived.json`,
+                    {
                         method: 'PUT',
                         headers: {
                             'Authorization': `token ${token}`,
@@ -1549,11 +1569,13 @@
                             sha: archivedFile.sha,
                             branch: GITHUB_CONFIG.branch
                         })
-                    })
-                ]);
+                    }
+                );
 
-                if (!mainUpdateResponse.ok || !archivedUpdateResponse.ok) {
-                    throw new Error('GitHub API 更新失敗');
+                if (!archivedUpdateResponse.ok) {
+                    const error = await archivedUpdateResponse.text();
+                    console.error('更新 pokemon_archived.json 失敗:', archivedUpdateResponse.status, error);
+                    throw new Error(`更新 pokemon_archived.json 失敗: ${archivedUpdateResponse.status}`);
                 }
 
                 return true;
