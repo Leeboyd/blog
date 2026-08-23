@@ -158,5 +158,13 @@
     "in_home": true,
     "caught_in_app": true,
     "uploaded_to_home": true
+  },
+  {
+    "id": "0822",
+    "name": "Corvisquire",
+    "in_app": true,
+    "in_home": true,
+    "caught_in_app": true,
+    "uploaded_to_home": true
   }
 ]
