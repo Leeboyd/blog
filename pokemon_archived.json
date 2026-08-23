@@ -150,5 +150,13 @@
     "in_home": false,
     "caught_in_app": true,
     "uploaded_to_home": true
+  },
+  {
+    "id": "0378",
+    "name": "Regice",
+    "in_app": false,
+    "in_home": true,
+    "caught_in_app": true,
+    "uploaded_to_home": true
   }
 ]
